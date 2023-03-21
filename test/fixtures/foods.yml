@@ -2,14 +2,12 @@
 
 one:
   name: MyString
-  measurement_unit: 9.99
+  measurement_unit: MyString
   price: 9.99
-  quantity: 1.5
-  user: one
+  quantity: 9.99
 
 two:
   name: MyString
-  measurement_unit: 9.99
+  measurement_unit: MyString
   price: 9.99
-  quantity: 1.5
-  user: two
+  quantity: 9.99
