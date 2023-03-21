@@ -5,13 +5,15 @@ default: &default
 
 development:
   <<: *default
-  database: my_database_development
+  database: recipe_app_developement
+  username: postgres
+  password: nabeel
+  host: localhost
 
 test:
   <<: *default
-  database: my_database_test
+  database: recipe_app_test
 
 production:
   <<: *default
-  database: my_database_production
-  
+  database: recipe_app_production
