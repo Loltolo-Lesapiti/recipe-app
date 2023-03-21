@@ -13,6 +13,9 @@ development:
 test:
   <<: *default
   database: recipe_app_test
+  username: postgres
+  password: nabeel
+  host: localhost
 
 production:
   <<: *default
