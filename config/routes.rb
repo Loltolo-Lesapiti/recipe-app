@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'foods#index'
   resources :recipes
   resources :foods
   get 'recipe/index'
