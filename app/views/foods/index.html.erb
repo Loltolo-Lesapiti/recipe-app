@@ -1,17 +1,23 @@
-<section>
-<div class="new-food-link"> 
-<%= link_to "New food", new_food_path %>
+<% if user_signed_in? %>
+<section class="table-container">
+<div class= "add-food">
+  <button class="btn btn-outline-dark" >
+    <%= link_to "Add food", new_food_path, class: "btn-link" %>
+  </button>
+
+  <button class="btn btn-outline-dark" >
+  <%= link_to 'Sign out', destroy_user_session_path, 'data-turbo-method': :delete, class: "btn-link" %>
+  </button>
 </div>
 
-<div id="foods">
-<table>
+<table class="table table-striped m-2">
 <thead>
   <tr>
-    <th>Name</th>
-    <th>Measurement unit</th>
-    <th>Price</th>
-    <th>Quantity</th>
-    <th>Action</th>
+    <th scope="col">Name</th>
+    <th scope="col">Measurement unit</th>
+    <th scope="col">Price</th>
+    <th scope="col">Quantity</th>
+    <th scope="col">Action</th>
   </tr>
 </thead>
 <tbody>
@@ -25,6 +31,6 @@
   <% end %>
   </tbody>
   </table>
-</div>
 
 </section>
+<% end %>
