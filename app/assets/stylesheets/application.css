@@ -30,3 +30,6 @@ button .btn-link {
 .table-container table {
   border: 2px solid  black;
 }
+.nav-item {
+  list-style-type: none;
+}
