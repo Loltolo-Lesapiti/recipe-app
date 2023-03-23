@@ -1,0 +1,38 @@
+<section class="table-container">
+<h3 class="text-center">Shopping List</h3>
+<% if @allfoods %>
+ <% sum = 0 %>
+<% count = 0 %>
+ <% @allfoods.each do |single| %>
+ <% value = single.quantity * single.price%>
+<% sum += value %>
+      <% count += 1%>
+ <%end%>
+ <%end%>
+<div class="d-flex justify-content-around">
+  <h5> Amount of food: <%= count %></h5>
+  <h5>Total value  of food needed:   $<%= sum %> </h5>
+</div>
+<div>
+  <table class="table table-striped m-2">
+  <thead>
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% if @allfoods %>
+     <% @allfoods.each do |single| %>
+      <tr>
+        <td><%= single.name%></td>
+        <td><%= single.quantity%><%= single.measurement_unit%></td>
+        <td><%= single.quantity * single.price%></td>
+      </tr>
+    <%end%>
+    <%end%>
+    </tbody>
+  </table>
+</div>
+</section>
