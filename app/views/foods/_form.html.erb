@@ -1,3 +1,4 @@
+<div class="container-fluid">
 <%= form_with(model: food) do |form| %>
   <% if food.errors.any? %>
     <div style="color: red">
@@ -11,27 +12,28 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-2">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :measurement_unit, style: "display: block" %>
-    <%= form.text_field :measurement_unit %>
+  <div class="mb-2">
+    <%= form.label :measurement_unit, class: "form-label" %>
+    <%= form.text_field :measurement_unit, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+  <div class="mb-2">
+    <%= form.label :price, class: "form-label" %>
+    <%= form.text_field :price, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
-    <%= form.text_field :quantity %>
+  <div class="mb-2">
+    <%= form.label :quantity, class: "form-label" %>
+    <%= form.text_field :quantity, class: "form-control"%>
   </div>
 
-  <div>
+  <div class="mb-2">
     <%= form.submit %>
   </div>
 <% end %>
+</div>
