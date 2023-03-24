@@ -1,0 +1,18 @@
+<%# <%= render 'header/header'%>
+<div class='d-flex flex-column '>
+
+  <h1 class='text-center'>Public Recipes</h1>
+  <% @recipes.each do |public|%>
+  <div class='d-flex justify-content-between mx-2'>
+    <div>
+      <p><%= public.name%></p>
+      <p>By:<%= public.user.name%></p>
+    </div>
+    <div>
+      <p>Total Food items: <%= public.foods.length%></p>
+      <p>Total Price: <%= public.recipe_foods.sum{|f| f.food.price * f.quantity} %></p> 
+    </div>
+  </div>
+  <button class=' btn btn-outline-secondary'><%= link_to 'Show details', public, class:'btn btn-primary' %></button>
+<% end %>
+</div>
