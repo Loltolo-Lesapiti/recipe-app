@@ -1,19 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<div id="recipes">
+
   <% @recipes.each do |recipe| %>
+  <div class="container d-flex align-items-center recipe">
+  <div class="d-flex flex-column m-3 align-items-center">
   <p>
     <%= link_to recipe.name, recipe %>
   </p>
-  <p>
+  <%= button_to "Remove", @recipe, method: :delete,class:"recipe-btn" %>
+ </div>
+    <p>
     <%# <strong>Description:</strong> %>
     <%= recipe.description %>
   </p>
-
-    <p>
-       <%= button_to "Remove", @recipe, method: :delete %>
-    </p>
+  </div>
   <% end %>
-</div>
+
 
 <%= link_to "New recipe", new_recipe_path %>
