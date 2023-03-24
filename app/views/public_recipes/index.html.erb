@@ -10,8 +10,7 @@
     </div>
     <div>
       <p>Total Food items: <%= public.foods.length%></p>
-      <%# <p>Total Price: <%= public.total%>
-      <%# </p> %> 
+      <p>Total Price: <%= public.recipe_foods.sum{|f| f.food.price * f.quantity} %></p> 
     </div>
   </div>
   <button class=' btn btn-outline-secondary'><%= link_to 'Show details', public, class:'btn btn-primary' %></button>

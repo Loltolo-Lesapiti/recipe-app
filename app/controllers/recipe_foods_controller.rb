@@ -18,12 +18,11 @@ class RecipeFoodsController < ApplicationController
 
   # DELETE /recipees/1 or /recipees/1.json
   def destroy
-    @recipee = Recipe.find(params[:recipe_id])
     @recipe_food = RecipeFood.find(params[:id])
     @recipe_food.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipee_url(@recipe), notice: 'Recipee was successfully destroyed.' }
+      format.html { redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -31,8 +30,8 @@ class RecipeFoodsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_recipee
-    @recipee = Recipee.find(params[:id])
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
