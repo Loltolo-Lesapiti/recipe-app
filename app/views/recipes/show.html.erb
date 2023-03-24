@@ -1,19 +1,43 @@
 <div class="container">
-  
-    <h4 class="text-center"><%= @recipe.name %></h4>
+ <%= render @recipe %>
 
-  <div class="d-flex justify-content-between">
-  <div class="d-flex flex-column mb-3">
-      <p>Preparation time: <%= @recipe.preparation_time %> min</p>
-      <p>Cooking time: <%= @recipe.cooking_time %> min</p>
-      <p>Steps: <%= @recipe.description %></p>
-  </div>
     <%= button_to(@recipe.public? ? "Make Private" : "Make Public", toggle_recipe_privacy_path(@recipe), method: :put, class: "update-recipe") %>
   </div>
 
-  <div class="d-flex justify-content-between">
-  <%= link_to "Add ingredient"%>
-    <%= link_to "Generate shoping list"%>
+  <div class="">
+  <%= form_with(
+    model: RecipeFood.new,
+    url: recipe_recipe_foods_path(@recipe),
+    method: :post,
+  ) do |form| %>
+
+  <% if @recipe.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+        <% @recipe.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="show_input">
+   <%= form.label :quantity %>
+    <%= form.number_field :quantity, class: "quantity" %>
+  </div>
+ 
+  <div class="show_input">
+    <%= form.label :food_id %>
+    <%= form.collection_select(:food_id, Food.all, :id, :name, prompt: true) %>
+  </div>
+  <div class="show_input">
+    <%= form.submit  "Add ingredient", class: "btn btn-primary" %>
+    
+  </div>
+<% end %>
+    <%= link_to "Generate shoping list", shopping_list_path%>
   </div>
 </div>
 <div class="container">

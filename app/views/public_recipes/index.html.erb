@@ -1,0 +1,16 @@
+<%# <%= render 'header/header'%>
+<div>
+  <h1>Public Recipes</h1>
+  <% @recipes.each do |public|%>
+  <div>
+    <p><%= public.name%></p>
+    <p>By:<%= public.user.name%></p>
+  </div>
+  <div>
+    <p>Total Food items: <%= public.foods.length%></p>
+    <%# <p>Total Price: <%= public.total%>
+    <%# </p> %> 
+  </div>
+  <button><%= link_to 'Show details', public %></button>
+<% end %>
+</div>
