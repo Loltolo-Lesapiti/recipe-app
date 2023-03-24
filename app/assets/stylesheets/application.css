@@ -34,3 +34,13 @@ button .btn-link {
 .nav-item {
   list-style-type: none;
 }
+
+.recipe {
+  border: 2px solid  black;
+  margin: 20px;
+  gap: 150px;
+}
+
+.recipe-btn {
+  margin-left: 0;
+}

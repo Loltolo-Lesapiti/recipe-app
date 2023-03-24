@@ -4,7 +4,7 @@
  <% sum = 0 %>
 <% count = 0 %>
  <% @allfoods.each do |single| %>
- <% value = single.quantity * single.price%>
+ <% value = single.quantity * single.food.price%>
 <% sum += value %>
       <% count += 1%>
  <%end%>
@@ -26,9 +26,9 @@
     <% if @allfoods %>
      <% @allfoods.each do |single| %>
       <tr>
-        <td><%= single.name%></td>
-        <td><%= single.quantity%><%= single.measurement_unit%></td>
-        <td><%= single.quantity * single.price%></td>
+        <td><%= single.food.name%></td>
+        <td><%= single.quantity%><%= single.food.measurement_unit%></td>
+        <td><%= single.quantity * single.food.price%></td>
       </tr>
     <%end%>
     <%end%>

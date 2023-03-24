@@ -1,10 +1,43 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  
+    <h4 class="text-center"><%= @recipe.name %></h4>
 
-<%= render @recipe %>
+  <div class="d-flex justify-content-between">
+  <div class="d-flex flex-column mb-3">
+      <p>Preparation time: <%= @recipe.preparation_time %> min</p>
+      <p>Cooking time: <%= @recipe.cooking_time %> min</p>
+      <p>Steps: <%= @recipe.description %></p>
+  </div>
+    <%= button_to(@recipe.public? ? "Make Private" : "Make Public", toggle_recipe_privacy_path(@recipe), method: :put, class: "update-recipe") %>
+  </div>
 
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
-
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+  <div class="d-flex justify-content-between">
+  <%= link_to "Add ingredient"%>
+    <%= link_to "Generate shoping list"%>
+  </div>
 </div>
+<div class="container">
+  <table class="table table-striped m-2">
+    <thead>
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Value</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @food_recipe.each do |recipe_food| %>
+        <tr id="<%= dom_id recipe_food %>">
+          <td><%= recipe_food.food.name %></td>
+          <td><%= recipe_food.quantity %></td>
+          <td><%= recipe_food.food.price * recipe_food.quantity %></td>
+          <td>
+          <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+
