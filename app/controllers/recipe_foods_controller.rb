@@ -1,6 +1,6 @@
 class RecipeFoodsController < ApplicationController
-   # POST /recipees or /recipees.json
-   def create
+  # POST /recipees or /recipees.json
+  def create
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = RecipeFood.new(recipe_food_params)
     @recipe_food.recipe_id = @recipe.id
