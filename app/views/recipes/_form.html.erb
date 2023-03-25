@@ -12,31 +12,31 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class:'form-label' %>
+    <%= form.text_field :name, class:'form-control' %>
   </div>
 
   <div>
-    <%= form.label :preparation_time, style: "display: block" %>
-    <%= form.number_field :preparation_time %>
+    <%= form.label :preparation_time, class:'form-label'%>
+    <%= form.number_field :preparation_time, class:'form-control' %>
   </div>
 
   <div>
-    <%= form.label :cooking_time, style: "display: block" %>
-    <%= form.number_field :cooking_time %>
+    <%= form.label :cooking_time,  class:'form-label' %>
+    <%= form.number_field :cooking_time, class:'form-control' %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.label :description,  class:'form-label' %>
+    <%= form.text_area :description, class:'form-control' %>
   </div>
 
   <div>
-    <%= form.label :public, style: "display: block" %>
+    <%= form.label :public,  class:'form-label' %>
     <%= form.check_box :public %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-primary'%>
   </div>
 <% end %>

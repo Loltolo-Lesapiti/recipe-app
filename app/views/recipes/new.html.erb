@@ -1,3 +1,4 @@
+<div class='container d-flex flex-column m-3'>
 <h1>New recipe</h1>
 
 <%= render "form", recipe: @recipe %>
@@ -5,5 +6,6 @@
 <br>
 
 <div>
-  <%= link_to "Back to recipes", recipes_path %>
+  <%= link_to "Back to recipes", recipes_path, class:'btn btn-primary'%>
+</div>
 </div>
