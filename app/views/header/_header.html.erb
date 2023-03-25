@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+  <%= link_to 'Recipe App', root_path, class:"navbar-brand"%>
+    <%# <a class="navbar-brand" href="#">Recipe App</a> %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        <%= link_to 'Food List', root_path, class:'nav-link active'%>
+          <%# <a class="nav-link active" aria-current="page" href="#">Food List</a> %>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'Recipe List', recipes_path, class:'nav-link' %>
+          <%# <a class="nav-link" href="#">Recipe List</a> %>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'Public Recipe List', public_recipes_path, class:'nav-link' %>
+          <%# <a class="nav-link" href="#">Public Recipe List</a> %>
+        </li>
+      </ul>
+        <li class="nav-item mb-2 mb-lg-0 list-style-none">
+         <%= link_to 'Logout', destroy_user_session_path, 'data-turbo-method': :delete, class: "nav-link" %>
+          <%# <a class="nav-link" href="#">Logout</a> %>
+        </li>
+      <%# <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> %>
+    </div>
+  </div>
+</nav>

@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a .btn-link {
+  text-decoration: none;
+}
+
+button .btn-link {
+  text-decoration: none;
+}
+
+.add-food {
+  text-align: end;
+  margin: 0 15px;
+}
+
+.table-container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.table-container table {
+  border: 2px solid  black;
+}
+
+.nav-item {
+  list-style-type: none;
+}
+
+.recipe {
+  border: 2px solid  black;
+  margin: 20px;
+  gap: 150px;
+}
+
+.recipe-btn {
+  margin-left: 0;
+}

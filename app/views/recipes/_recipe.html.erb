@@ -1,0 +1,34 @@
+<div id="<%= dom_id recipe %> class="d-flex justify-content-between">
+  
+  <h2 class = "d-flex justify-content-center ">
+    <%# <strong>Name:</strong> %>
+    <%= recipe.name %>
+  </h2>
+  <div class= 'd-flex justify-content-between'>
+ 
+  <div class='mt-2'>
+    <p>
+      <strong>Preparation time:</strong>
+      <%= recipe.preparation_time%>hr
+    </p>
+
+      <p>
+        <strong>Cooking time:</strong>
+        <%= recipe.cooking_time%>hr
+      </p>
+
+      <p>
+    <%# <strong>Description:</strong> %>
+    <%= recipe.description %>
+      </p>
+    </div>
+  
+  
+   <div class='d-flex '>
+    <p class='mt-2 mx-2'>
+      <%= recipe.public ? 'public' : 'private'%>
+    </p>
+     <%= button_to(@recipe.public? ? "OFF" : "ON", toggle_recipe_privacy_path(@recipe), method: :put, class: "update-recipe btn btn-primary") %>
+  </div>
+  </div>
+</div>
