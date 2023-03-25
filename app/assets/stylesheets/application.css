@@ -19,6 +19,10 @@
   padding: 0;
 }
 
+a .btn-link {
+  text-decoration: none;
+}
+
 button .btn-link {
   text-decoration: none;
 }
