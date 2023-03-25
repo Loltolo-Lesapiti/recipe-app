@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
-  subject { Recipe.new(name: 'Pilau', preparation_time: 2, cooking_time: 1, description: 'Pour water and some rice', public: true) }
+  subject do
+    Recipe.new(name: 'Pilau', preparation_time: 2, cooking_time: 1, description: 'Pour water and some rice',
+               public: true)
+  end
   before { subject.save }
 
   it 'name should be present' do
