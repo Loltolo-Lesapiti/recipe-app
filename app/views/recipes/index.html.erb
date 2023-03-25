@@ -1,15 +1,16 @@
 <p style="color: green"><%= notice %></p>
-
-
+<div class='d-flex justify-content-start mx-4' >
+  <%= link_to "New recipe", new_recipe_path, class: 'text-decoration-none btn btn-primary'%>
+</div>  
   <% @recipes.each do |recipe| %>
   <% if can? :read, recipe %>
-  <div class="container d-flex align-items-center recipe">
+  <div class="d-flex align-items-center recipe">
   <div class="d-flex flex-column m-3 align-items-center">
   <p>
-    <%= link_to recipe.name, recipe%>
+    <%= link_to recipe.name, recipe, class: 'text-decoration-none' %>
   </p>
 <% if can? :destroy, recipe %>
-  <%= button_to "Remove", recipe, method: :delete,class:"recipe-btn" %>
+  <%= button_to "Remove", recipe, method: :delete,class:"btn btn-danger" %>
 <% end %>
  </div>
     <p>
@@ -18,5 +19,3 @@
   </div>
   <% end %>
   <% end %> 
-
-<%= link_to "New recipe", new_recipe_path %>

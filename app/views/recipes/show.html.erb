@@ -26,14 +26,17 @@
   <div class="show_input">
     <%= form.submit  "Add ingredient", class: "btn btn-primary mb-4" %>
   </div>
-   <div class="show_input mb-4">
-   <%= form.label :quantity %>
-    <%= form.number_field :quantity, class: "quantity " %>
-  </div>
+
+  <div class='row'>
+    <div class="d-flex mx-2 col">
+      <%= form.label :quantity, class:'me-2' %>
+      <%= form.number_field :quantity, class:"form-control" %>
+    </div>
  
-  <div class="show_input">
-    <%= form.label :food_id %>
-    <%= form.collection_select(:food_id, Food.all, :id, :name, prompt: true) %>
+    <div class="col mx-2">
+      <%= form.label :food_id, class:'me-2' %>
+      <%= form.collection_select(:food_id, Food.all, :id, :name, prompt: true) %>
+    </div>
   </div>
 </div>    
  
@@ -63,7 +66,7 @@
           <td><%= recipe_food.food.price * recipe_food.quantity %></td>
           <td>
           <% if can? :destroy, @recipe  %>
-          <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>
           <% end %>
           </td>
         </tr>
