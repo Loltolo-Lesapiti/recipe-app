@@ -2,19 +2,21 @@
 
 
   <% @recipes.each do |recipe| %>
+  <% if can? :read, recipe %>
   <div class="container d-flex align-items-center recipe">
   <div class="d-flex flex-column m-3 align-items-center">
   <p>
     <%= link_to recipe.name, recipe%>
   </p>
+<% if can? :destroy, recipe %>
   <%= button_to "Remove", recipe, method: :delete,class:"recipe-btn" %>
+<% end %>
  </div>
     <p>
-    <%# <strong>Description:</strong> %>
     <%= recipe.description %>
   </p>
   </div>
   <% end %>
-
+  <% end %> 
 
 <%= link_to "New recipe", new_recipe_path %>

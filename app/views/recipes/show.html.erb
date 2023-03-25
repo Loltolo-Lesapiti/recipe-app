@@ -1,7 +1,7 @@
 <div class="container m-2">
  <%= render @recipe %>
 </div>
-
+<%if can? :create, @recipe%>
   <div class='m-4'>
   <%= form_with(
     model: RecipeFood.new,
@@ -38,6 +38,7 @@
 </div>    
  
 <% end %>
+<% end %>
   <div>
     <%= link_to "Generate shoping list", shopping_list_path, class:'btn btn-primary'%>
   </div>
@@ -61,7 +62,9 @@
           <td><%= recipe_food.quantity %></td>
           <td><%= recipe_food.food.price * recipe_food.quantity %></td>
           <td>
+          <% if can? :destroy, @recipe  %>
           <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
           </td>
         </tr>
       <% end %>
